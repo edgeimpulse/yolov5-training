@@ -272,6 +272,7 @@ def run(
 
     # Print results
     pf = '%22s' + '%11i' * 2 + '%11.3g' * 4  # print format
+    LOGGER.info(s)
     LOGGER.info(pf % ('all', seen, nt.sum(), mp, mr, map50, map))
     if nt.sum() == 0:
         LOGGER.warning(f'WARNING: no labels found in {task} set, can not compute metrics without labels ⚠️')

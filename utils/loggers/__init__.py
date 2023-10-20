@@ -87,20 +87,20 @@ class Loggers():
         if not wandb:
             prefix = colorstr('Weights & Biases: ')
             s = f"{prefix}run 'pip install wandb' to automatically track and visualize YOLOv5 🚀 runs in Weights & Biases"
-            self.logger.info(s)
+            #self.logger.info(s)
         if not clearml:
             prefix = colorstr('ClearML: ')
             s = f"{prefix}run 'pip install clearml' to automatically track, visualize and remotely train YOLOv5 🚀 in ClearML"
-            self.logger.info(s)
+            #self.logger.info(s)
         if not comet_ml:
             prefix = colorstr('Comet: ')
             s = f"{prefix}run 'pip install comet_ml' to automatically track and visualize YOLOv5 🚀 runs in Comet"
-            self.logger.info(s)
+            #self.logger.info(s)
         # TensorBoard
         s = self.save_dir
         if 'tb' in self.include and not self.opt.evolve:
             prefix = colorstr('TensorBoard: ')
-            self.logger.info(f"{prefix}Start with 'tensorboard --logdir {s.parent}', view at http://localhost:6006/")
+            #self.logger.info(f"{prefix}Start with 'tensorboard --logdir {s.parent}', view at http://localhost:6006/")
             self.tb = SummaryWriter(str(s))
 
         # W&B
