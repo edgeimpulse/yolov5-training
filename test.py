@@ -226,6 +226,7 @@ def test(data,
 
     # Print results
     pf = '%20s' + '%12i' * 2 + '%12.3g' * 4  # print format
+    print(s)
     print(pf % ('all', seen, nt.sum(), mp, mr, map50, map))
 
     # Print results per class

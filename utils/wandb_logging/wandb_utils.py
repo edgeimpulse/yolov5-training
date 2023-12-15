@@ -110,7 +110,7 @@ class WandbLogger():
                 self.data_dict = self.check_and_upload_dataset(opt)
         else:
             prefix = colorstr('wandb: ')
-            print(f"{prefix}Install Weights & Biases for YOLOv5 logging with 'pip install wandb' (recommended)")
+            #print(f"{prefix}Install Weights & Biases for YOLOv5 logging with 'pip install wandb' (recommended)")
 
     def check_and_upload_dataset(self, opt):
         assert wandb, 'Install wandb to upload dataset'
