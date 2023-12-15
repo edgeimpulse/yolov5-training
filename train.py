@@ -274,7 +274,7 @@ def train(hyp, opt, device, tb_writer=None):
         pbar = enumerate(dataloader)
         logger.info(f"Epoch: {epoch}")
         if rank in [-1, 0]:
-            pbar = tqdm(pbar, total=nb)  # progress bar
+            pbar = tqdm(pbar, total=nb, bar_format='{l_bar}{bar:10}{r_bar}{bar:-10b}')  # progress bar
         optimizer.zero_grad()
         for i, (imgs, targets, paths, _) in pbar:  # batch -------------------------------------------------------------
             ni = i + nb * epoch  # number integrated batches (since train start)
