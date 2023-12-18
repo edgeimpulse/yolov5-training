@@ -652,7 +652,7 @@ def colorstr(*input):
         'end': '\033[0m',  # misc
         'bold': '\033[1m',
         'underline': '\033[4m'}
-    return ''.join(colors[x] for x in args) + f'{string}' + colors['end']
+    return string
 
 
 def labels_to_class_weights(labels, nc=80):
