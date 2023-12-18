@@ -7,6 +7,7 @@ Usage:
 import argparse
 import sys
 import time
+import os
 
 sys.path.append('./')  # to run '$ python *.py' files in subdirectories
 
@@ -43,7 +44,11 @@ if __name__ == '__main__':
     opt.img_size = [check_img_size(x, gs) for x in opt.img_size]  # verify img_size are gs-multiples
 
     # Input
-    img = torch.zeros(opt.batch_size, 3, *opt.img_size).to(device)  # image size(1,3,320,192) iDetection
+    if 'USE_GRAY_INPUT' in os.environ and os.environ['USE_GRAY_INPUT']:
+        img = torch.zeros(opt.batch_size, 1, *opt.img_size).to(device)  # image size(1,1,320,192) iDetection
+    else:
+        img = torch.zeros(opt.batch_size, 3, *opt.img_size).to(device)  # image size(1,3,320,192) iDetection
+        
 
     # Update model
     for k, m in model.named_modules():
