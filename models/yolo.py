@@ -1,5 +1,6 @@
 # YOLOv5 YOLO-specific modules
 
+import os
 import argparse
 import logging
 import sys
@@ -78,6 +79,11 @@ class Model(nn.Module):
                 self.yaml = yaml.load(f, Loader=yaml.SafeLoader)  # model dict
 
         # Define model
+        if 'USE_GRAY_INPUT' in os.environ and os.environ['USE_GRAY_INPUT']:
+            ch=1
+        else:
+            ch=3
+        self.yaml['ch'] = ch
         ch = self.yaml['ch'] = self.yaml.get('ch', ch)  # input channels
         if nc and nc != self.yaml['nc']:
             logger.info(f"Overriding model.yaml nc={self.yaml['nc']} with nc={nc}")
